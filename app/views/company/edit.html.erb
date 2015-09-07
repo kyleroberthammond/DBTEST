@@ -1,0 +1,23 @@
+<% if @company.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@company.errors.count, "issue") %> 
+    	prevented your company from being added:</h2>
+    <ul>
+    	
+    <% @company.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<h1>Edit Company</h1>
+<%= form_for @company do |f| %>
+  <%= f.label :company_name %>:
+  <%= f.text_field :company_name %><br />
+
+  <%= f.label :address %>:
+  <%= f.text_field :address %><br />
+
+  <%= f.submit %>
+<% end %>

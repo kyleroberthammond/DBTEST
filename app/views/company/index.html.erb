@@ -1,0 +1,18 @@
+<h1>All Companies</h1>
+
+<div>
+	Some companies here...
+</div>
+
+
+<article>
+  <header class="page-header">
+    <h1>Some Companies here...</h1>
+  </header>
+  <% @companies.each do |data| %>
+  	<div>
+  		<%=data.company_name%> - <%=data.address%> <%= link_to "Edit", edit_company_path(data.id) %>
+  		<%= link_to "Remove", company_path(data.id), :method=>'delete' %>
+  	</div>
+  <% end %>
+</article>
