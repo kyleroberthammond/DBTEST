@@ -21,7 +21,7 @@ class CompanyController < ApplicationController
   def create
     @company = Company.create(company_params)
     if(@company.valid?)
-      render text:'its good'
+      redirect_to company_index_path
     else
       render :new
     end
@@ -31,7 +31,7 @@ class CompanyController < ApplicationController
     @company = Company.find(params[:id])
     @company.update(company_params)
 
-    redirect_to edit_company_path
+    redirect_to company_index_path
   end
 
   def destroy
